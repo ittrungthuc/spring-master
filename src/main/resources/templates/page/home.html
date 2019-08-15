@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>data</title>
+    <script type="text/javascript">
+   
+        function  insertExam() {
+            var name    =document.exam.name.value;
+            var email   =document.exam.email.value;
+            var age     =document.exam.age.value;
+            var ngaysinh=document.exam.ngaysinh.value;
+            var exprence=document.exam.exprence.value;
+            var data = {
+                    name:name,
+                    email:email,
+                    age:age,
+                    ngaySinh:ngaysinh,
+                    exprence:exprence
+            };
+            $.ajax({
+                url: "/student",
+                type: "POST",
+                dataType : "json",
+                contentType: 'application/json',
+                data:JSON.stringify(data),
+                success: function( data, textStatus, jQxhr ){
+                    console.log(JSON.stringify( data ) );
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    console.log( jqXhr,textStatus,errorThrown );
+                }
+            });
+        }
+
+        function pageRespon() {
+            axios.get('/api/v1/exam')
+                .then(function (response) {
+                    document.body.innerHTML = JSON.stringify(response);
+                })
+                .catch(function (error) {
+                    document.body.innerHTML = JSON.stringify(error);
+                });
+        }
+
+    </script>
+</head>
+<body>
+<div style="width: 50%;height: auto;margin: auto">
+    <form action="#" name="exam" >
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">name</label>
+                <input type="text" name="name" class="form-control" id="inputPassword4" placeholder="Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="birthday">BirthDay</label>
+            <input type="text" name="ngaysinh" class="form-control" id="birthday" placeholder="yyyy-MM-dd">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="exprence">exprence</label>
+                <input type="text" name="exprence" class="form-control" id="exprence">
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="age">Age</label>
+                <input type="text" name="age" class="form-control" id="age">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Check me out
+                </label>
+            </div>
+        </div>
+        <button type="button" id="bottom-exam" onclick="insertExam()" class="btn btn-primary">SubmitMe</button>
+    </form>
+</div>
+
+</body>
+</html>
