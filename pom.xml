@@ -66,6 +66,11 @@
             <artifactId>spring-social-config</artifactId>
             <version>2.0.0.M2</version>
         </dependency>
+        <!--web socket-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.social/spring-social-security -->
         <!-- https://mvnrepository.com/artifact/org.springframework.social/spring-social-security -->
@@ -126,6 +131,7 @@
         </dependency>-->
     </dependencies>
     <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+
 
 
     <build>
