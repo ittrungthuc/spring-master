@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<form id="formdata">
+    <div class="form-row">
+        <div class="col">
+            <input type="text" class="form-control" name="id" placeholder="id">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" name="name" placeholder="name">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <input type="text" class="form-control" name="year" placeholder="year">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" name="author" placeholder="author">
+        </div>
+    </div>
+    <button class="button" onclick="callMethod();">submit</button>
+</form>
+
+<script>
+
+$(function () {
+    $.fn.serializeObject = function()
+    {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+})
+
+    function callMethod() {
+        var data =$("#formdata").serializeObject();
+        $.ajax({
+            url : "/music",
+            type : "POST",
+            contentType : "application/json; charset=utf-8",
+            data :JSON.stringify(data) ,
+            success : function (result){
+               alert(JSON.stringify(result))
+            },
+            error: function (err) {
+                alert(err)
+            }
+        });
+    }
+
+</script>
+
+</body>
+</html>
