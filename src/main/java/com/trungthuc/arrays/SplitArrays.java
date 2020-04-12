@@ -44,5 +44,11 @@ public class SplitArrays {
 
         System.out.printf("SPLIT:" + partitionBasedOnSize(data,7));
 
+        /*final List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+        System.out.println(partitionIntegerListBasedOnSize(list, 4));  // [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10]]
+        System.out.println(partitionBasedOnSize(list, 4));  // [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10]]
+        System.out.println(partitionBasedOnSize(list, 3));  // [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+        System.out.println(partitionBasedOnCondition(list, i -> i<6));  // [[6, 7, 8, 9, 10], [1, 2, 3, 4, 5]]*/
+
     }
 }
