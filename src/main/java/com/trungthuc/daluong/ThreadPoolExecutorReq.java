@@ -32,4 +32,36 @@ public class ThreadPoolExecutorReq {
        }
 
     }
+
+    int cacuLater(int var){
+        int sum = 0;
+        int run = 2;
+        while ( var > run ) {
+             while ( var % run == 0 ){
+                 sum += run;
+                 var /=run;
+             }
+            run ++;
+        }
+        return sum;
+    }
+
+
+    boolean isPrime(int n) {
+
+        Boolean result = null;
+
+        if (n <= 1) return false;
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0){
+                result = false;
+                break;
+            }
+            else {
+                result = true;
+            }
+        }
+      return result;
+
+    }
 }

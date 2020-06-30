@@ -12,7 +12,7 @@ public class GenericUtils{
     static final int OVERLAY_TERRAIN  = 1 << 3;
 
     public static void main(String[] args) {
-        System.out.println("OVERLAY_STREETS = " + OVERLAY_TERRAIN);
+        System.out.println("OVERLAY_STREETS = " + OVERLAY_STREETS);
     }
 
     static ModelMapper MAP =new ModelMapper();
