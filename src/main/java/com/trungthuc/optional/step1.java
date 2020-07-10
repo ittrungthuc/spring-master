@@ -2,7 +2,7 @@ package com.trungthuc.optional;
 
 import java.util.Optional;
 
-public class step1 {
+public class  step1 {
     public static void main(String[] args) {
        /* Optional<String> data;
         Optional<String> data1= Optional.of("data");
